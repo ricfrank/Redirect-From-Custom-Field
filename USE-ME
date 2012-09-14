@@ -1,0 +1,9 @@
+USE:
+create a custom field named equals to REDIRECT_CUSTOM_FIELD_NAME constant in
+.module file, in any content type of your drupal instance.
+
+Create a new node and put a valid url in REDIRECT_CUSTOM_FIELD_NAME field.
+
+That's all! 
+
+If you fill the custom field of a node  with a valid url, the node will redirect to that url.
