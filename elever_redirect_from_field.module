@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Main bootstrap file of the elever_redirect_from_field module.
+ */
+
+define('REDIRECT_CUSTOM_FIELD_NAME', 'field_redirect_url');
+
+function elever_redirect_from_field_init() {
+
+  $node = menu_get_object();
+  
+  if(!is_null($node)){
+      $items = field_get_items('node', $node, REDIRECT_CUSTOM_FIELD_NAME, $node->language);
+  } else {
+    return true;
+  }
+  
+  $redirectUrl = $items[0]['safe_value'];
+  
+  if(!is_null($redirectUrl)){
+    drupal_goto($redirectUrl);
+    exit;
+  }
+  
+  return true;
+}
